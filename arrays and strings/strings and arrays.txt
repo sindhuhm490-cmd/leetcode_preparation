@@ -1,0 +1,95 @@
+
+58. Length of Last Word
+-------------------------
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int i = s.length() - 1;
+
+        // Skip trailing spaces
+        while (i >= 0 && s.charAt(i) == ' ') {
+            i--;
+        }
+
+        int count = 0;
+
+        // Count last word
+        while (i >= 0 && s.charAt(i) != ' ') {
+            count++;
+            i--;
+        }
+
+        return count;
+    }
+}
+
+
+88. Merge Sorted Array
+-----------------------
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int a=m+n;
+        int [] res=new int[a];
+       
+         for(int i=0;i<m;i++){
+            res[i]=nums1[i];
+         }
+         
+         for(int j=0;j<n;j++){
+            res[j+m]=nums2[j];
+         }
+         
+           for(int i=0;i<a;i++){
+            nums1[i]=res[i];
+         } 
+        Arrays.sort(nums1);  
+    
+    }
+}
+
+
+
+704. Binary Search
+--------------------
+class Solution {
+    public int search(int[] nums, int target) {
+        int n=nums.length;
+      int left=0;
+      int right=n-1;
+     
+      while(left<=right){
+         int mid=left+(right-left)/2;
+        if(target==nums[mid]){
+            return mid;
+        }
+        if(target<nums[mid]){
+            right=mid-1;
+        }
+        else{
+            left=mid+1;
+        }
+      }
+       return -1; 
+    }
+}
+
+
+
+35. Search Insert Position
+-----------------------------
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int n =nums.length;
+        for(int i=0;i<n;i++){
+            if(nums[i]==target){
+                return i;
+            }
+            else if(nums[i]>target){
+                return i;
+            }
+        }
+        
+            return n;
+        }
+      
+    
+}
